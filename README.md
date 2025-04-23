@@ -1,6 +1,6 @@
 # Multi-Step Form Application
 
-A responsive, feature-rich multi-step form application built with React, React Router, Zustand for state management, and Tailwind CSS for styling.
+A responsive, feature-rich multi-step form application built with React, React Router, Zustand for state management, and Tailwind CSS and Shadcn for styling.
 
 ## Architecture Overview
 
@@ -11,13 +11,14 @@ multi-step-form/
 ├── src/
 │   ├── components/
 │   │   ├── ui/                 # UI components (shadcn/ui)
-│   │   ├── APIcomponent.tsx    # API integration component
+│   │   ├── API-component.tsx    # API integration component
 │   │   ├── step-progress.tsx   # Progress indicator component
-│   │   └── ThemeComponent.tsx  # Theme toggle component
+│   │   └── theme-component.tsx  # Theme toggle component
 │   ├── hooks/
-│   │   ├── use-mobile.tsx      # Hook for responsive design
+design
 │   │   ├── use-route-protection.ts # Route protection logic
-│   │   └── use-toast.ts        # Toast notification hook
+│   │  
+ hook
 │   ├── lib/
 │   │   └── utils.ts            # Utility functions
 │   ├── store/
@@ -36,6 +37,7 @@ multi-step-form/
 The application uses Zustand for state management:
 
 - **Form State**: Manages the multi-step form data including personal information, preferences, and step completion status
+
 - **Theme State**: Manages the application theme (light/dark)
 
 Zustand was chosen for its simplicity, minimal boilerplate, and built-in persistence capabilities.
@@ -74,9 +76,6 @@ The application uses React Hook Form with Zod schema validation:
 
 The application uses a mobile-first approach with Tailwind CSS and Shadcn for UI:
 
-1. **Breakpoint System**: Responsive layouts using Tailwind's breakpoint utilities
-2. **Custom Hook**: `useIsMobile` hook to conditionally render components based on screen size
-3. **Flexible Layouts**: Grid and flex layouts that adapt to different screen sizes
 
 ## Extra Features
 
@@ -90,9 +89,9 @@ The application supports light and dark mode:
 ### API Integration
 
 The application demonstrates API integration:
-- Fetches data from JSONPlaceholder API
+- Fetches data from JSONPlaceholder API (https://jsonplaceholder.typicode.com/todos)
+
 - Displays data in a select dropdown
-- Handles loading and error states
 
 ### Route Protection
 
@@ -112,8 +111,8 @@ The application shows different form fields based on user selections:
 1. **Clone the repository**
    ```bash
    git clone https://github.com/NabaaArt/multi-step-form.git
-   
+
    cd test1
    npm install
-    npm run build
+   npm run build
    npm run dev

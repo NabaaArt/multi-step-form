@@ -92,7 +92,7 @@ export default function PersonalInfoPage() {
           Personal Information
         </CardTitle>
         <CardDescription className="text-sm sm:text-base">
-          Please enter your basic information 
+          Please enter your basic information
         </CardDescription>
       </CardHeader>
 
@@ -119,7 +119,7 @@ export default function PersonalInfoPage() {
                     </div>
                   </FormControl>
                   <FormDescription className="text-xs">
-                    Enter your full name 
+                    Enter your full name
                   </FormDescription>
                   <FormMessage />
                 </FormItem>

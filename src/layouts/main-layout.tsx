@@ -1,4 +1,4 @@
-import ThemedComponent from "@/components/ThemeComonent";
+import ThemedComponent from "@/components/theme-comonent";
 import { Outlet } from "react-router-dom";
 
 export default function MainLayout() {

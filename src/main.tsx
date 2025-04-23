@@ -4,7 +4,7 @@ import App from "./App.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PersonalInfoPage from "./steps/personal-info/page.tsx";
 import React from "react";
-import MainLayout from "./layouts/mainLayout.tsx";
+import MainLayout from "./layouts/main-layout.tsx";
 import ReviewPage from "./steps/review/page.tsx";
 import PreferencesPage from "./steps/preferences/page.tsx";
 

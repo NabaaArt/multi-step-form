@@ -31,7 +31,6 @@ import {
   Bell,
   MessageCircleMore,
   Palette,
-  BookOpen,
   Tag,
 } from "lucide-react";
 import { useRouteProtection } from "@/hooks/use-route-protection";
@@ -72,7 +71,6 @@ export default function PreferencesPage() {
   const { preferences, setPreferences, setStepCompleted, personalInfo } =
     useFormStore();
 
-  // Protect this route - redirect if personal info is not completed
   useRouteProtection("personalInfo", "/steps/personal-info");
 
   const form = useForm<PreferencesValues>({
@@ -85,16 +83,13 @@ export default function PreferencesPage() {
   });
 
   useEffect(() => {
-    // Load data from localStorage if available
     const savedData = useFormStore.getState().preferences;
     if (savedData) {
       form.reset(savedData);
     }
   }, [form]);
 
-  // Show additional fields based on occupation
-  const showEducationFields = personalInfo?.occupation === "student";
-
+  
   function onSubmit(data: PreferencesValues) {
     setPreferences(data);
     setStepCompleted("preferences");
@@ -240,94 +235,8 @@ export default function PreferencesPage() {
                 )}
               />
 
-              {/* <FormField
-                control={form.control}
-                name="themePreference"
-                render={({ field }) => (
-                  <FormItem className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Palette className="h-4 w-4 text-primary" />
-                      </div>
-                      <FormLabel className="text-base font-medium">Theme Preference</FormLabel>
-                    </div>
-                    <FormControl>
-                      <RadioGroup
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                        className="flex flex-col space-y-3 mt-2 bg-muted/30 p-4 rounded-lg"
-                      >
-                        <FormItem className="flex items-center space-x-3 space-y-0">
-                          <FormControl>
-                            <RadioGroupItem value="light" className="h-5 w-5" />
-                          </FormControl>
-                          <FormLabel className="font-medium cursor-pointer">Light Theme</FormLabel>
-                        </FormItem>
-                        <FormItem className="flex items-center space-x-3 space-y-0">
-                          <FormControl>
-                            <RadioGroupItem value="dark" className="h-5 w-5" />
-                          </FormControl>
-                          <FormLabel className="font-medium cursor-pointer">Dark Theme</FormLabel>
-                        </FormItem>
-                        <FormItem className="flex items-center space-x-3 space-y-0">
-                          <FormControl>
-                            <RadioGroupItem value="system" className="h-5 w-5" />
-                          </FormControl>
-                          <FormLabel className="font-medium cursor-pointer">System Default</FormLabel>
-                        </FormItem>
-                      </RadioGroup>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              /> */}
+             
             </div>
-
-            {/* Conditional fields based on occupation */}
-            {showEducationFields && (
-              <div className="p-6 border-2 border-primary/20 rounded-lg bg-primary/5 shadow-sm">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <BookOpen className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">
-                      Student-specific options
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      We've noticed you're a student. These additional options
-                      might interest you.
-                    </p>
-                  </div>
-                </div>
-                <div className="space-y-3 ml-2">
-                  <div className="flex items-center space-x-3">
-                    <Checkbox
-                      id="student-discount"
-                      className="h-5 w-5 border-2"
-                    />
-                    <label
-                      htmlFor="student-discount"
-                      className="text-base font-medium cursor-pointer"
-                    >
-                      I'm interested in student discounts
-                    </label>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Checkbox
-                      id="student-resources"
-                      className="h-5 w-5 border-2"
-                    />
-                    <label
-                      htmlFor="student-resources"
-                      className="text-base font-medium cursor-pointer"
-                    >
-                      Send me educational resources
-                    </label>
-                  </div>
-                </div>
-              </div>
-            )}
 
             <div className="flex justify-between pt-4">
               <Button

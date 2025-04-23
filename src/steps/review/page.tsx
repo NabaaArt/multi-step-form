@@ -125,7 +125,6 @@ export default function ReviewPage() {
                   </div>
                 </div>
                 <InfoRow label="Notifications" value={notificationDisplay} />
-                {/* <InfoRow label="Theme" value={themeDisplay} /> */}
               </div>
             </motion.div>
 

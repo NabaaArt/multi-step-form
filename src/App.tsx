@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import APIcomponent from "./components/APIcomponent";
+import APIcomponent from "./components/API-component";
 
 export default function App() {
   return (

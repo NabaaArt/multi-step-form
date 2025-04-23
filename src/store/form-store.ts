@@ -1,19 +1,18 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
 
-// Define types for our form data
 type PersonalInfo = {
   fullName: string
   email: string
   occupation: string
 }
 interface ThemeState {
-  theme: "light" | "dark" | "system";
-  setTheme: (theme: "light" | "dark" | "system") => void;
+  theme: "light" | "dark" ;
+  setTheme: (theme: "light" | "dark" ) => void;
 }
 
 export const useThemeStore = create<ThemeState>((set) => ({
-  theme: "system", // Default to system theme
+  theme: "light", 
   setTheme: (theme) => set({ theme }),
 }));
 type Preferences = {
@@ -28,7 +27,6 @@ type CompletedSteps = {
   review: boolean
 }
 
-// Define the store state
 interface FormState {
   personalInfo: PersonalInfo | null
   preferences: Preferences | null
@@ -39,7 +37,6 @@ interface FormState {
   resetForm: () => void
 }
 
-// Create the store with persistence
 export const useFormStore = create<FormState>()(
   persist(
     (set) => ({
